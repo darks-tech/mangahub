@@ -1,0 +1,46 @@
+:root {
+  --dark: #171717;
+  --dark-2: #1e1e1e;
+}
+
+body[data-theme='light'] {
+  --background: #e1e1e1;
+  --block: #fff;
+  --text: #000;
+}
+
+body[data-theme='dark'] {
+  --background: var(--dark);
+  --block: var(--dark-2);
+  --text: #fff;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: var(--background);
+  font-family: 'Roboto Regular', sans-serif;
+  color: var(--text);
+}
+.container {
+  max-width: 1150px;
+  min-width: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 15px;
+}
+main {
+  padding-top: 95px;
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    padding-top: 80px;
+  }
+}

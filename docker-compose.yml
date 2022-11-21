@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  api-gateway:
+    container_name: api_gateway
+    image: devopsfaith/krakend
+    restart: always
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./:/etc/krakend
+    command: ['run', '-d', '-c', '/etc/krakend/krakend.json']
+
+  auth:
+    container_name: auth_service
+    build:
+      context: ./auth-service
+      dockerfile: deploy/Dockerfile
+    restart: always
+    working_dir: /app

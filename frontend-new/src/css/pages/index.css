@@ -1,0 +1,33 @@
+.index-page {
+  background-color: var(--block);
+  padding: 15px;
+  box-sizing: border-box;
+}
+.index-page > .title {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.release-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+.manga > img {
+  width: 150px;
+  height: 200px;
+  display: block;
+  margin-bottom: 5px;
+}
+.manga > .manga-type {
+  font-size: 14px;
+  color: grey;
+}
+
+@media screen and (max-width: 480px) {
+  .release-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .manga > img {
+    width: 100%;
+  }
+}
