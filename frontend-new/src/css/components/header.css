@@ -19,6 +19,7 @@ header {
 .header-logo {
   font-family: 'Roboto Medium', sans-serif;
   font-size: 20px;
+  color: #fff;
 }
 .header-logo > span {
   color: orange;
@@ -30,6 +31,7 @@ header {
   background: transparent;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 #switcher > svg {
   width: 25px;

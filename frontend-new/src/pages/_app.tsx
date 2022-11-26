@@ -6,6 +6,7 @@ import 'css/main.css'
 import 'css/fonts.css'
 
 import 'css/pages/index.css'
+import 'css/pages/id.css'
 
 import 'css/components/header.css'
 

@@ -1,5 +1,6 @@
 import { FC, useCallback, useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from 'icons';
+import Link from 'next/link';
 
 const Header: FC = () => {
   const [theme, changeTheme] = useState({})
@@ -34,8 +35,12 @@ const Header: FC = () => {
   return (
     <header>
       <div className='header container'>
-        <div className='header-logo'>Manga<span>Hub</span></div>
-        <button id='switcher' onClick={OnClick}>{theme ? <SunIcon /> : <MoonIcon />}</button>
+        <Link href='/'>
+          <div className='header-logo'>Manga<span>Hub</span></div>
+        </Link>
+        <button id='switcher' onClick={OnClick}>
+          <MoonIcon />
+        </button>
       </div>
     </header>
   )
