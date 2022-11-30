@@ -9,7 +9,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <meta name='theme-color' content='#1e1e1e' />
+        </Head>
         <body>
           <script type='text/javascript' src='/scripts/switcher.js' />
           <Main />

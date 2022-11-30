@@ -2,23 +2,21 @@ header {
   background-color: var(--dark-2);
   color: #fff;
   width: 100%;
-  height: 79px;
+  height: 70px;
   position: fixed;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 79px;
+  height: 70px;
 }
 
 
 
 .header-logo {
   font-family: 'Roboto Medium', sans-serif;
-  font-size: 20px;
   color: #fff;
 }
 .header-logo > span {
