@@ -17,6 +17,7 @@ header {
 
 .header-logo {
   font-family: 'Roboto Medium', sans-serif;
+  font-size: 18px;
   color: #fff;
 }
 .header-logo > span {
