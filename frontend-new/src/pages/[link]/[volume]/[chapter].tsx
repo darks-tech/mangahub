@@ -62,7 +62,7 @@ const Chapter: FC<{pages: []}> = ({ pages }) => {
   useEffect(() => {
     let lastPos = 0;
     const handleScroll = (event: any) => {
-      if (window.scrollY < 50) return
+      if (window.scrollY < 71) return
       if (window.scrollY < lastPos) {
         document.querySelector('header').classList.remove('header-hidden')
         document.querySelector('header').classList.add('header-not-hidden')
