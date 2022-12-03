@@ -13,7 +13,6 @@ class MyDocument extends Document {
           <meta name='theme-color' content='#1e1e1e' />
         </Head>
         <body>
-          <script type='text/javascript' src='/scripts/switcher.js' />
           <Main />
           <NextScript />
         </body>

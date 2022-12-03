@@ -2,7 +2,7 @@ package main
 
 import (
 	"item-service/internal/config"
-	"item-service/internal/user"
+	user "item-service/internal/item"
 	"log"
 )
 

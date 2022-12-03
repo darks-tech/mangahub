@@ -1,19 +1,17 @@
 :root {
   --dark: #111111;
   --dark-2: #1e1e1e;
-}
 
-body[data-theme='light'] {
-  --background: #e1e1e1;
-  --block: #fff;
-  --text: #000;
-}
-
-body[data-theme='dark'] {
   --background: var(--dark);
   --block: var(--dark-2);
   --text: #fff;
 }
+
+/* body[data-theme='light'] {
+  --background: #e1e1e1;
+  --block: #fff;
+  --text: #000;
+} */
 
 a {
   color: var(--text);

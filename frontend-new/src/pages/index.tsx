@@ -8,9 +8,9 @@ const Index: FC = () => (
       <div className='title'>Соңғы аудармалар</div>
 
       <div className='release-list'>
-        <Manga img='/death.png' title='Ажал дәптері' type='Манга' />
-        <Manga img='/aot.webp' title='Титандар шабуылы' type='Манга' />
-        <Manga img='/jujutsu.webp' title='Сиқырлы шайқас' type='Манга' />
+        <Manga img='/death.png' title='Ажал дәптері' type='2006' />
+        <Manga img='/aot.webp' title='Титандар шабуылы' type='2009' />
+        <Manga img='/jujutsu.webp' title='Сиқырлы шайқас' type='2018' />
       </div>
 
     </div>

@@ -5,12 +5,22 @@ header {
   height: 70px;
   position: fixed;
   align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  transition: opacity 0.15s ease, visibility 0.15s ease;
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
+}
+.header-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.header-not-hidden {
+  opacity: 1;
+  visibility: visible;
 }
 
 
@@ -24,23 +34,18 @@ header {
   color: orange;
 }
 
-#switcher {
-  width: 25px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-#switcher > svg {
-  width: 25px;
-  color: #fff;
+
+.header-menu {
+  width: 28px;
+  height: 28px;
 }
 
 
 
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 480px) {
+  .header-logo {
+    font-size: 16px;
+  }
   .header {
     padding: 0 15px;
   }

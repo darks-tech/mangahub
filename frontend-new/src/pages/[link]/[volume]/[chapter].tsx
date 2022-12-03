@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import { Template } from 'components'
 import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/router';
@@ -15,59 +15,79 @@ export const getServerSideProps = (ctx: GetServerSidePropsContext) => {
   }
 }
 
-const Chapter: FC = ({ pages }: { pages: [] }) => {
+const Chapter: FC<{pages: []}> = ({ pages }) => {
   const router = useRouter()
-  
-  console.log(router.query.page)
+  const page = parseInt(router.query['page'].toString())
 
   const onClick = useCallback((event: any) => {
     const div = event.target.parentNode
     const currentPage = parseInt(div.getAttribute('data-p'))
     const windowWidth = Math.floor(div.offsetWidth / 2)
-  
-    const hidden = () => div.classList.add('hidden')
 
-    if (div.className !== 'item-page') return
+    if (div.className !== 'chapter-page-item') return
+
+    if (document.body.scrollWidth < 481) {
+      document.querySelector('header').classList.remove('header-not-hidden')
+      document.querySelector('header').classList.add('header-hidden')
+    }
 
     if (event.clientX - div.offsetLeft > windowWidth) {
-      const lastPage = 3;
+      const lastPage = pages.length;
       if (currentPage === lastPage) {
         // самая последняя страница
         return
       }
-      
 
-      var newurl = location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + (currentPage + 1);
+      var newurl = window.location.pathname + '?page=' + (currentPage + 1)
       router.push(newurl)
 
-      hidden()
-      const nextElem = document.querySelectorAll('[data-p="' + (currentPage + 1) + '"]')[0];
-      nextElem.classList.remove('hidden');
+      div.classList.add('hidden')
+      const nextElem = document.querySelectorAll('[data-p="' + (currentPage + 1) + '"]')[0]
+      nextElem.classList.remove('hidden')
     } else {
       if (currentPage === 1) {
         // самая первая страница
         return
       }
 
-      var newurl = location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + (currentPage - 1);
+      var newurl = window.location.pathname + '?page=' + (currentPage - 1)
       router.push(newurl)
 
-      hidden()
-      const prevElem = document.querySelectorAll('[data-p="' + (currentPage - 1) + '"]')[0];
-      prevElem.classList.remove('hidden');
+      div.classList.add('hidden')
+      const prevElem = document.querySelectorAll('[data-p="' + (currentPage - 1) + '"]')[0]
+      prevElem.classList.remove('hidden')
     }
+  }, [])
+
+  useEffect(() => {
+    let lastPos = 0;
+    const handleScroll = (event: any) => {
+      if (window.scrollY < 50) return
+      if (window.scrollY < lastPos) {
+        document.querySelector('header').classList.remove('header-hidden')
+        document.querySelector('header').classList.add('header-not-hidden')
+      } else {
+        document.querySelector('header').classList.remove('header-not-hidden')
+        document.querySelector('header').classList.add('header-hidden')
+      }
+      lastPos = window.scrollY
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <Template title='Wasd'>
-      <div className='item-pages container'>
-        {
-          pages.map((value, index) => (
-            <div className={ 'item-page' + ((parseInt(router.query['page'].toString()) == index + 1) ? '' : ' hidden') } data-p={ index + 1 } onClick={onClick} key={index}>
-              <img src={ `/${value}` } alt='page' />
-            </div>
-          ))
-        }
+      <div className='chapter-page container'>
+        { pages.map((value, index) => (
+          <div className={ 'chapter-page-item' + ((page == index + 1) ? '' : ' hidden') }
+            data-p={ index + 1 } onClick={onClick} key={index}>
+            <img src={ `/${value}` } alt='page' />
+          </div>
+        ))}
+
+        <div className='chapter-comments'>comments</div>
       </div>
     </Template>
   )

@@ -7,6 +7,7 @@ import 'css/fonts.css'
 
 import 'css/pages/index.css'
 import 'css/pages/id.css'
+import 'css/pages/chapter.css'
 
 import 'css/components/header.css'
 

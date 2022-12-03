@@ -1,0 +1,24 @@
+.chapter-page {
+
+}
+.chapter-pages {
+  display: block;
+  cursor: pointer;
+}
+.chapter-page-item > img {
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+.chapter-comments {
+  height: 1000px;
+}
+  
+@media screen and (max-width: 480px) {
+  .chapter-page {
+    margin-top: -70px;
+    padding: 0;
+  }
+}
