@@ -1,4 +1,4 @@
-package user
+package item
 
 import (
 	"item-service/internal/config"
@@ -12,14 +12,10 @@ type Handler struct {
 	service *Service
 }
 
-func New(cfg *config.Config) *Handler {
+func New(cfg *config.Config, service *Service) *Handler {
 	return &Handler{
 		router:  gin.New(),
 		config:  cfg,
-		service: InitService(),
+		service: service,
 	}
-}
-
-func (h *Handler) InitRoutes() {
-	h.router.GET(`/`, h.GetItems)
 }

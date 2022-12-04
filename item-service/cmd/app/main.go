@@ -2,7 +2,8 @@ package main
 
 import (
 	"item-service/internal/config"
-	user "item-service/internal/item"
+	"item-service/internal/item"
+	"item-service/internal/storage/postgresql"
 	"log"
 )
 
@@ -12,7 +13,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	server := user.New(cfg)
+	psql, err := postgresql.Connect(cfg)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	service := item.InitService(psql)
+
+	server := item.New(cfg, service)
 	server.InitRoutes()
 	server.Start()
 }

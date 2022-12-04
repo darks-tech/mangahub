@@ -1,8 +1,8 @@
 DB:
-  HOST: darks.cloud
-  NAME: auth_service
-  USER: auth_service
-  PASS: auth_service
+  HOST: localhost
+  NAME: item_service
+  USER: item_service
+  PASS: item_service
 
 SERVER:
   PORT: "4000"
