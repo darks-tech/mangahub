@@ -1,8 +1,0 @@
-DB:
-  HOST: darks.cloud
-  NAME: auth_service
-  USER: auth_service
-  PASS: auth_service
-
-SERVER:
-  PORT: "4000"

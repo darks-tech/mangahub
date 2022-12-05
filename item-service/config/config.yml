@@ -1,5 +1,5 @@
 DB:
-  HOST: localhost
+  HOST: host.docker.internal
   NAME: item_service
   USER: item_service
   PASS: item_service

@@ -7,27 +7,13 @@
   "output_encoding": "no-op",
   "endpoints": [
     {
-      "endpoint": "/auth/login",
-      "method": "POST",
-      "backend": [
-        {
-          "url_pattern": "/login",
-          "method": "POST",
-          "host": ["auth:4000"]
-        }
-      ]
-    },
-    {
-      "endpoint": "/auth",
-      "input_headers": [
-        "X-Real-IP"
-      ],
-      "method": "POST",
+      "endpoint": "/items",
+      "method": "GET",
       "backend": [
         {
           "url_pattern": "/",
-          "method": "POST",
-          "host": ["auth:4000"]
+          "method": "GET",
+          "host": ["item_service:4000"]
         }
       ]
     }

@@ -1,5 +1,0 @@
-package postgresql
-
-func Connect() {
-
-}

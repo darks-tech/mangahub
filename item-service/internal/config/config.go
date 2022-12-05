@@ -27,7 +27,7 @@ func Init() (*Config, error) {
 
 	config.SetConfigName(`config`)
 	config.SetConfigType(`yaml`)
-	config.AddConfigPath(`.`)
+	config.AddConfigPath(`./config`)
 
 	if err := config.ReadInConfig(); err != nil {
 		return cfg, err

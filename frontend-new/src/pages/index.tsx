@@ -14,15 +14,12 @@ export const getServerSideProps = () => {
 const Index: FC<{ items: MangaProps[]}> = ({ items }) => (
   <Template title='Басты бет'>
     <div className='index-page container'>
-
       <div className='title'>Соңғы аудармалар</div>
-
       <div className='items-list'>
         {items.map((value: MangaProps, index: number) => (
             <Manga poster={value.poster} link={value.link} title={value.title} type={value.type} key={index} />
         ))}
       </div>
-
     </div>
   </Template>
 )

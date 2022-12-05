@@ -14,7 +14,7 @@ type Handler struct {
 
 func New(cfg *config.Config, service *Service) *Handler {
 	return &Handler{
-		router:  gin.New(),
+		router:  gin.Default(),
 		config:  cfg,
 		service: service,
 	}
