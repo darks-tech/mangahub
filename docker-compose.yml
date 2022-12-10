@@ -11,7 +11,7 @@ services:
       - ./:/etc/krakend
     command: ['run', '-d', '-c', '/etc/krakend/krakend.json']
 
-  item_service:
+  item-service:
     container_name: item_service
     build:
       context: ./item-service

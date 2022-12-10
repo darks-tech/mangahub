@@ -13,7 +13,18 @@
         {
           "url_pattern": "/",
           "method": "GET",
-          "host": ["item_service:4000"]
+          "host": ["item-service:4000"]
+        }
+      ]
+    },
+    {
+      "endpoint": "/items/{link}",
+      "method": "GET",
+      "backend": [
+        {
+          "url_pattern": "/{link}",
+          "method": "GET",
+          "host": ["item-service:4000"]
         }
       ]
     }

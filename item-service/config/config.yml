@@ -1,8 +1,8 @@
 DB:
-  HOST: host.docker.internal
+  HOST: localhost #host.docker.internal
   NAME: item_service
   USER: item_service
   PASS: item_service
 
 SERVER:
-  PORT: "4000"
+  PORT: "4001"
