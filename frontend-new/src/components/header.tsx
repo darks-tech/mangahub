@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { MenuIcon } from 'icons'
 
 const Header: FC = () => (
-  <header className=''>
+  <header>
     <div className='header container'>
       <Link href='/'>
-        <div className='header-logo'>Manga<span>Hub</span></div>
+        <div className='header-logo'>Risokyo<span>Lib</span></div>
       </Link>
 
       <div className='header-menu'>

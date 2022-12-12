@@ -26,10 +26,8 @@ const Chapter: FC<{pages: []}> = ({ pages }) => {
 
     if (div.className !== 'chapter-page-item') return
 
-    if (document.body.scrollWidth < 481) {
-      document.querySelector('header').classList.remove('header-not-hidden')
-      document.querySelector('header').classList.add('header-hidden')
-    }
+    document.querySelector('header').classList.add('header-hidden');
+    document.querySelector('.chapter-page').classList.add('chapter-page__without-header');
 
     if (event.clientX - div.offsetLeft > windowWidth) {
       const lastPage = pages.length;
@@ -60,17 +58,26 @@ const Chapter: FC<{pages: []}> = ({ pages }) => {
   }, [])
 
   useEffect(() => {
-    let lastPos = 0;
-    const handleScroll = (event: any) => {
-      if (window.scrollY < 71) return
-      if (window.scrollY < lastPos) {
-        document.querySelector('header').classList.remove('header-hidden')
-        document.querySelector('header').classList.add('header-not-hidden')
-      } else {
-        document.querySelector('header').classList.remove('header-not-hidden')
-        document.querySelector('header').classList.add('header-hidden')
+    const header = document.querySelector('header')
+    const defaultOffset = 200
+
+    let prevPos: number
+    let lastShowPos: number
+
+    const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop
+    const containHide = () => header.classList.contains('header-hidden');
+
+    const handleScroll = () => {
+      if(scrollPosition() > prevPos && scrollPosition() > defaultOffset) {
+        lastShowPos = scrollPosition()
+        if (!containHide()) header.classList.add('header-hidden');
+      } else if(scrollPosition() < prevPos && scrollPosition() <= lastShowPos - 100) {
+        if (containHide()) header.classList.remove('header-hidden');
+        if (document.querySelector('.chapter-page').classList.contains('chapter-page__without-header')) {
+          document.querySelector('.chapter-page').classList.remove('chapter-page__without-header')
+        }
       }
-      lastPos = window.scrollY
+      prevPos = scrollPosition()
     }
 
     window.addEventListener('scroll', handleScroll);

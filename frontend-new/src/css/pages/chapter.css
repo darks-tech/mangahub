@@ -1,6 +1,7 @@
-.chapter-page {
-
+.chapter-page__without-header {
+  margin-top: -71px;
 }
+
 .chapter-pages {
   display: block;
   cursor: pointer;
@@ -18,7 +19,6 @@
   
 @media screen and (max-width: 480px) {
   .chapter-page {
-    margin-top: -70px;
     padding: 0;
   }
 }
